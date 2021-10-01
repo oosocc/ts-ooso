@@ -1,11 +1,21 @@
 import React from 'react';
+import {ErrorBoundary} from "./components";
+import { Routes } from './routes';
+import {AppStore} from "./store";
+import AppRouter from "./routes/AppRouter";
 
 
 function App() {
   return (
-    <div className="App">
+      <ErrorBoundary name={"App"}>
+          <AppStore>
+              <AppRouter>
+                  <Routes />
+              </AppRouter>
 
-    </div>
+          </AppStore>
+
+      </ErrorBoundary>
   );
 }
 
