@@ -1,6 +1,8 @@
-import {Grid, makeStyles, Theme} from "@material-ui/core";
+import {AppBar, Grid, Toolbar, Typography} from "@material-ui/core";
+import { makeStyles, Theme } from "@material-ui/core/styles";
 import {ErrorBoundary} from "../../components";
 
+const TITLE_PUBLIC ="ooso"
 const useStyles = makeStyles((theme: Theme) => ({
     root: {
         minHeight: '100vh', // Full screen height
@@ -10,32 +12,50 @@ const useStyles = makeStyles((theme: Theme) => ({
         },
     },
      header: {},
-    // toolbar: {
-    //     paddingLeft: theme.spacing(1),
-    //     paddingRight: theme.spacing(1),
-    // },
-    // title: {
-    //     marginLeft: theme.spacing(1),
-    //     marginRight: theme.spacing(1),
-    //     flexGrow: 1,
-    //     textAlign: 'center',
-    //     whiteSpace: 'nowrap',
-    // },
-    // content: {
-    //     flexGrow: 1, // Takes all possible space
-    //     padding: theme.spacing(1),
-    // },
-    // footer: {},
+    toolbar: {
+        paddingLeft: theme.spacing(1),
+        paddingRight: theme.spacing(1),
+    },
+    title: {
+        marginLeft: theme.spacing(1),
+        marginRight: theme.spacing(1),
+        flexGrow: 1,
+        textAlign: 'center',
+        whiteSpace: 'nowrap',
+    },
+    content: {
+        flexGrow: 1, // Takes all possible space
+        padding: theme.spacing(1),
+    },
+    footer: {},
 }));
 
 
 const PublicLayout: React.FC  = ({children}) => {
     const classes = useStyles();
 
+    const title = TITLE_PUBLIC;
+    document.title = title;
+
 
     return (
         <Grid container direction={"column"} className={classes.root}>
             <Grid item className={classes.header} component={"header"}>
+                <AppBar component={"div"}>
+                    <Toolbar className={classes.toolbar} disableGutters >
+                        <Typography className={classes.title} variant={"h6"} >
+                            {title}
+                        </Typography>
+                    </Toolbar>
+                </AppBar>
+
+            </Grid>
+
+            <Grid item className={classes.content} component={"main"} >
+                <ErrorBoundary name={"Content"}>{children}</ErrorBoundary>
+            </Grid>
+
+            <Grid item className={classes.footer} component={"footer"}>
 
             </Grid>
         </Grid>

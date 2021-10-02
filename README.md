@@ -11,6 +11,9 @@ yarn remove antd
 ### 添加Mui
 `yarn add @material-ui/core@next @emotion/react @emotion/styled`
 
+### 删除Mui V5
+
+
 ### 添加 axios
 ` 
 yanr add axios
@@ -21,6 +24,10 @@ yanr add axios
 yarn add react-router-dom @types/react-router-dom
 `
 
+### 添加Mui V4
+`
+yarn add @material-ui/core
+`
 
 
 
