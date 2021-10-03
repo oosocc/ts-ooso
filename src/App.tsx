@@ -14,9 +14,7 @@ function App() {
                   <AppRouter>
                       <Routes />
                   </AppRouter>
-
               </AppThemeProvider>
-
           </AppStore>
 
       </ErrorBoundary>

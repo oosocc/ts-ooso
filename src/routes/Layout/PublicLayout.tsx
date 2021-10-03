@@ -1,8 +1,9 @@
 import {AppBar, Grid, Toolbar, Typography} from "@material-ui/core";
 import { makeStyles, Theme } from "@material-ui/core/styles";
 import {ErrorBoundary} from "../../components";
+import {Footer} from "../../views";
 
-const TITLE_PUBLIC ="ooso"
+const TITLE_PUBLIC ="ooso学习"
 const useStyles = makeStyles((theme: Theme) => ({
     root: {
         minHeight: '100vh', // Full screen height
@@ -55,9 +56,14 @@ const PublicLayout: React.FC  = ({children}) => {
                 <ErrorBoundary name={"Content"}>{children}</ErrorBoundary>
             </Grid>
 
-            <Grid item className={classes.footer} component={"footer"}>
+            {/*<Grid item className={classes.footer} component={"footer"}>
 
-            </Grid>
+            </Grid>*/}
+            <Footer
+            title={title}
+            description={"版权时雨讴"}
+            />
+
         </Grid>
 
 
